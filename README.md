@@ -66,4 +66,4 @@ Ao enviar uma requisição para uma rota protegida, certifique-se de incluir ess
 
 ## 📄 Licença
 
-Este projeto está sob a licença MIT. Consulte o arquivo [LICENSE.md](https://github.com/prpires66/bookstoreAPI/blob/main/LICENSE) para obter mais detalhes.
+Este projeto está sob a licença MIT. Consulte o arquivo [LICENSE.md](https://github.com/prpires66/bookstore-api/blob/main/LICENSE) para obter mais detalhes.
