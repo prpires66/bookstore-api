@@ -10,7 +10,7 @@ Esta API permite o gerenciamento de funcionários e livros em um sistema de livr
 
 O Reprograme-se é um programa oferecido pelo IFES - Instituto Federal do Espírito Santo, com o objetivo de qualificar jovens e adultos para o mercado de trabalho na área de Tecnologia da Informação (TI). Para mais informações, visite [o site oficial do Reprograme-se](https://reprograme-se.org.br/).
 
-## Instalação e Uso
+## 🔧 Instalação e Uso
 
 1. **Clonagem do repositório:** Clone este repositório para o seu ambiente local usando o comando:
 
@@ -39,7 +39,7 @@ Você pode definir essas variáveis de ambiente em um arquivo `.env` na raiz do 
 
 5. **Utilização da API:** A API estará disponível em `http://localhost:3000`. Você pode enviar requisições HTTP para as rotas especificadas abaixo.
 
-## Rotas da API
+## ⚙️ Rotas da API
 
 ### Funcionários
 
@@ -58,7 +58,7 @@ Você pode definir essas variáveis de ambiente em um arquivo `.env` na raiz do 
 
 Lembre-se de substituir `:id` pelo ID correspondente ao funcionário ou livro desejado nas rotas que exigem esse parâmetro.
 
-## Acesso às Rotas Protegidas
+## ㊙️ Acesso às Rotas Protegidas
 
 Para acessar as rotas protegidas da API, você precisa incluir o token de autenticação no header da requisição. No caso do Postman ou programas similares, você deve adicionar o header `x-access-token` com o valor do token na requisição.
 
