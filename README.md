@@ -128,6 +128,24 @@ curl -X GET \
 
 > Substitua `http://sua_api.com/rota_protegida` pelo URL da rota protegida que você deseja acessar e `TOKEN_DE_AUTENTICACAO` pelo token de autenticação válido para acessar essa rota.
 
+## 📦 Implantação
+
+Para implantar esta aplicação, você pode considerar duas abordagens populares:
+
+1. **Implantação em Servidor de Nuvem:**
+
+   - Esta abordagem envolve hospedar a sua aplicação em um provedor de serviços de nuvem, como Vercel, Heroku ou Netlify.
+   - Você pode fazer o upload do código fonte da sua aplicação para a plataforma de hospedagem e seguir as instruções fornecidas pela plataforma para implantar a aplicação.
+   - Essas plataformas geralmente oferecem integração contínua, escalabilidade automática e gerenciamento simplificado de infraestrutura, o que facilita o processo de implantação e gerenciamento da aplicação.
+
+2. **Implantação em Container Docker**:
+   - Nesta abordagem, você empacota sua aplicação e suas dependências em um contêiner Docker, que pode ser implantado em qualquer ambiente compatível com Docker.
+   - É necessário criar um arquivo de configuração Dockerfile para a aplicação e construir a imagem do contêiner.
+   - Depois de construir a imagem, você pode implantar o contêiner em qualquer host que execute o Docker Engine, como servidores físicos, máquinas virtuais ou clusters de contêineres gerenciados.
+   - O uso de contêineres Docker oferece portabilidade, consistência de ambiente e isolamento de recursos, o que pode ser vantajoso para ambientes de desenvolvimento, teste e produção.
+
+> Cada abordagem tem suas próprias vantagens e desvantagens, e a escolha entre elas dependerá das necessidades específicas do seu projeto, dos requisitos de escalabilidade, do orçamento e da preferência pessoal. Certifique-se de avaliar cuidadosamente cada opção antes de decidir qual é a melhor para sua aplicação.
+
 ## 📄 Licença
 
 ![License: MIT](https://img.shields.io/github/license/prpires66/nlw-esports?style=for-the-badge)
