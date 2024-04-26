@@ -9,13 +9,13 @@
 
 ## 🚀 Descrição
 
-Este projeto faz parte das atividades práticas do módulo 2024-F2M: Node.js, do programa **Reprograme-se**. A proposta consiste em desenvolver um sistema de cadastro de livros e funcionários, dividido em duas partes:
+Este projeto faz parte das atividades práticas do módulo 2024-F2M4: Node.js, do programa **Reprograme-se**. A proposta consiste em desenvolver um sistema de cadastro de livros e funcionários, dividido em duas partes:
 
 1. **Aplicação Front-end**: Responsável pela interface do usuário, esta parte permite que os usuários visualizem, adicionem, editem e excluam informações sobre livros e funcionários de forma intuitiva e amigável. [Repositório no Github](https://github.com/prpires66/bookstore-front)
 
 2. **Aplicação Back-end**: Esta parte gerencia os dados dos livros e funcionários, possibilitando a realização de operações de CRUD (Create, Read, Update, Delete) por meio de uma API, garantindo assim a integridade e segurança dos dados. [Repositório no Github](https://github.com/prpires66/bookstore-api)
 
-> Esta aplicação se refere ao item 2 (Aplicação Back-end) e é responsável pelo gerenciamento dos dados dos livros e funcionários em um sistema de livraria, fornecendo uma API para interação com o banco de dados.
+> Esta aplicação se refere ao **item 2 (Aplicação Back-end)** e é responsável pelo gerenciamento dos dados dos livros e funcionários em um sistema de livraria, fornecendo uma API para interação com o banco de dados.
 
 ## ℹ️ Reprograme-se
 
@@ -48,18 +48,17 @@ Além disso, você precisará de um editor de código de sua preferência, como 
    ```
    git clone https://github.com/prpires66/bookstore-api.git
    ```
-
-2. **Instalação de dependências:** Navegue até o diretório do projeto e instale as dependências usando o comando:
+   
+3. **Instalação de dependências:** Navegue até o diretório do projeto e instale as dependências usando o comando:
 
    ```
    npm install
    ```
-
-3. **Configuração do ambiente:** Antes de executar a API, certifique-se de configurar as seguintes variáveis de ambiente:
+   
+5. **Configuração do ambiente:** Antes de executar a API, certifique-se de configurar as seguintes variáveis de ambiente:
 
 - **`SECRET`:** Chave secreta utilizada pelo JWT para assinar tokens de autenticação.
 - **`POSTGRES_URL`:** URL de conexão com o banco de dados PostgreSQL.
-
 Você pode definir essas variáveis de ambiente em um arquivo `.env` na raiz do projeto ou configurá-las diretamente no ambiente de execução, dependendo das suas preferências e ambiente de desenvolvimento.
 
 4. **Execução da API:** Inicie o servidor da API usando o comando:
@@ -67,50 +66,34 @@ Você pode definir essas variáveis de ambiente em um arquivo `.env` na raiz do 
    ```
    npm start
    ```
-
+   
 5. **Utilização da API:** A API estará disponível em `http://localhost:3000`. Você pode enviar requisições HTTP para as rotas especificadas abaixo.
 
-## ⚙️ Rotas da API
 
-### Funcionários
-- **`POST /login`:**
-  - Autentica um funcionário.
-  - Parâmetros: Credenciais do funcionário no corpo da requisição.
-  - Retorna: Token de autenticação.
-- **`POST /funcionarios`:**
-  - Cadastra um novo funcionário.
-  - Parâmetros: Dados do novo funcionário no corpo da requisição.
-  - Retorna: Dados do funcionário cadastrado.
-- **`GET /funcionarios/:id?`:**
-  - Lista todos os funcionários ou obtém detalhes de um específico.
-  - Parâmetros: ID opcional para obter detalhes de um funcionário específico.
-  - Retorna: Lista de funcionários ou detalhes do funcionário.
-- **`PUT /funcionarios/:id`:**
-  - Atualiza os dados de um funcionário.
-  - Parâmetros: Novos dados do funcionário no corpo da requisição.
-  - Retorna: Dados atualizados do funcionário.
-- **`DELETE /funcionarios/:id`:**
-  - Exclui um funcionário.
-  - Parâmetros: ID do funcionário a ser excluído.
-  - Retorna: Confirmação de exclusão.
+## ⚙️ Utilização da API
 
-### Livros
-- **`POST /livros/Cadastrar`:**
-  - Cadastra um novo livro.
-  - Parâmetros: Dados do novo livro no corpo da requisição.
-  - Retorna: Dados do livro cadastrado.
-- **`GET /livros/:id?`:**
-  - Lista todos os livros ou obtém detalhes de um específico.
-  - Parâmetros: ID opcional para obter detalhes de um livro específico.
-  - Retorna: Lista de livros ou detalhes do livro.
-- **`PUT /livros/:id`:**
-  - Atualiza os dados de um livro.
-  - Parâmetros: Novos dados do livro no corpo da requisição.
-  - Retorna: Dados atualizados do livro.
-- **`DELETE /livros/:id`:**
-  - Exclui um livro.
-  - Parâmetros: ID do livro a ser excluído.
-  - Retorna: Confirmação de exclusão.
+Esta API oferece diversos endpoints para interagir com os funcionários e livros de uma empresa.
+
+> **:information_source: Observação:** Substitua `<baseUrl>` pelo endpoint que você está tentando acessar.
+
+### Rotas para Funcionários
+
+| Método | Endpoint                 | Descrição                                                     | Exemplo de Uso (bash)                      |
+| ------ | ------------------------ | ------------------------------------------------------------- | ------------------------------------------ |
+| `POST` | `/login`                 | Autentica um funcionário.                                     | `curl <baseUrl>/login`                     |
+| `POST` | `/funcionarios`          | Cadastra um novo funcionário.                                 | `curl -X POST <baseUrl>/funcionarios`      |
+| `GET`  | `/funcionarios/:id?`     | Lista todos os funcionários ou obtém detalhes de um específico. | `curl <baseUrl>/funcionarios/1`           |
+| `PUT`  | `/funcionarios/:id`      | Atualiza os dados de um funcionário.                          | `curl -X PUT <baseUrl>/funcionarios/1`     |
+| `DELETE` | `/funcionarios/:id`      | Exclui um funcionário.                                        | `curl -X DELETE <baseUrl>/funcionarios/1`  |
+
+### Rotas para Livros
+
+| Método | Endpoint                 | Descrição                                                     | Exemplo de Uso (bash)                      |
+| ------ | ------------------------ | ------------------------------------------------------------- | ------------------------------------------ |
+| `POST` | `/livros/Cadastrar`      | Cadastra um novo livro.                                       | `curl -X POST <baseUrl>/livros/Cadastrar`  |
+| `GET`  | `/livros/:id?`           | Lista todos os livros ou obtém detalhes de um específico.     | `curl <baseUrl>/livros/1`                 |
+| `PUT`  | `/livros/:id`            | Atualiza os dados de um livro.                                | `curl -X PUT <baseUrl>/livros/1`           |
+| `DELETE` | `/livros/:id`            | Exclui um livro.                                              | `curl -X DELETE <baseUrl>/livros/1`        |
 
 > Lembre-se de substituir `:id` pelo ID correspondente ao funcionário ou livro desejado nas rotas que exigem esse parâmetro.
 
@@ -127,24 +110,6 @@ curl -X GET \
 ```
 
 > Substitua `http://sua_api.com/rota_protegida` pelo URL da rota protegida que você deseja acessar e `TOKEN_DE_AUTENTICACAO` pelo token de autenticação válido para acessar essa rota.
-
-## 📦 Implantação
-
-Para implantar esta aplicação, você pode considerar duas abordagens populares:
-
-1. **Implantação em Servidor de Nuvem:**
-
-   - Esta abordagem envolve hospedar a sua aplicação em um provedor de serviços de nuvem, como Vercel, Heroku ou Netlify.
-   - Você pode fazer o upload do código fonte da sua aplicação para a plataforma de hospedagem e seguir as instruções fornecidas pela plataforma para implantar a aplicação.
-   - Essas plataformas geralmente oferecem integração contínua, escalabilidade automática e gerenciamento simplificado de infraestrutura, o que facilita o processo de implantação e gerenciamento da aplicação.
-
-2. **Implantação em Container Docker**:
-   - Nesta abordagem, você empacota sua aplicação e suas dependências em um contêiner Docker, que pode ser implantado em qualquer ambiente compatível com Docker.
-   - É necessário criar um arquivo de configuração Dockerfile para a aplicação e construir a imagem do contêiner.
-   - Depois de construir a imagem, você pode implantar o contêiner em qualquer host que execute o Docker Engine, como servidores físicos, máquinas virtuais ou clusters de contêineres gerenciados.
-   - O uso de contêineres Docker oferece portabilidade, consistência de ambiente e isolamento de recursos, o que pode ser vantajoso para ambientes de desenvolvimento, teste e produção.
-
-> Cada abordagem tem suas próprias vantagens e desvantagens, e a escolha entre elas dependerá das necessidades específicas do seu projeto, dos requisitos de escalabilidade, do orçamento e da preferência pessoal. Certifique-se de avaliar cuidadosamente cada opção antes de decidir qual é a melhor para sua aplicação.
 
 ## 📄 Licença
 
