@@ -60,15 +60,15 @@ Além disso, você precisará de um editor de código de sua preferência, como 
 - **`SECRET`:** Chave secreta utilizada pelo JWT para assinar tokens de autenticação.
 - **`POSTGRES_URL`:** URL de conexão com o banco de dados PostgreSQL.
 Você pode definir essas variáveis de ambiente em um arquivo `.env` na raiz do projeto ou configurá-las diretamente no ambiente de execução, dependendo das suas preferências e ambiente de desenvolvimento.
+- **`PORT`:** Porta em que o servidor da API será executado. Por padrão, é 3010, mas você pode definir uma porta diferente se necessário.
 
 4. **Execução da API:** Inicie o servidor da API usando o comando:
 
    ```
    npm start
    ```
-   
-5. **Utilização da API:** A API estará disponível em `http://localhost:3000`. Você pode enviar requisições HTTP para as rotas especificadas abaixo.
 
+5. **Utilização da API:** A API estará disponível em `http://localhost:3010` por padrão, ou na porta especificada pela variável de ambiente `PORT`. Você pode enviar requisições HTTP para as rotas especificadas abaixo.
 
 ## ⚙️ Utilização da API
 
@@ -99,7 +99,7 @@ Esta API oferece diversos endpoints para interagir com os funcionários e livros
 
 ## ㊙️ Acesso às Rotas Protegidas
 
-Para acessar as rotas protegidas da API, você precisa incluir o token de autenticação no header da requisição. No caso do Postman ou programas similares, você deve adicionar o header `x-access-token` com o valor do token na requisição. Todas as rotas são protegidas, exceto: `/login` e `/funcionarios`.
+Para acessar as rotas protegidas da API, você precisa incluir o token de autenticação no header da requisição. No caso do Postman ou programas similares, você deve adicionar o header `x-access-token` com o valor do token na requisição. Todas as rotas são protegidas, exceto: `/` e `/login`.
 
 > Ao enviar uma requisição para uma rota protegida, certifique-se de incluir esse header para garantir o acesso autorizado.
 
@@ -115,7 +115,7 @@ curl -X GET \
 
 ![License: MIT](https://img.shields.io/github/license/prpires66/nlw-esports?style=for-the-badge)
 
-Este projeto está sob a licença MIT. Consulte o arquivo [LICENSE.md](https://github.com/prpires66/bookstore-api/blob/main/LICENSE) para obter mais detalhes.
+Este projeto está sob a licença MIT. Consulte o arquivo [LICENSE](https://github.com/prpires66/bookstore-api/blob/main/LICENSE) para obter mais detalhes.
 
 ## 🙏 Agradecimento
 

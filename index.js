@@ -1,12 +1,11 @@
 // INSTALAÇÃO BIBLIOTECAS/MÓDULOS
 const express = require("express");
 const app = express();
+const PORT = process.env.PORT || 3010;
 const database = require("./db/db");
 const routes = require("./routes/routes");
 const jwt = require("jsonwebtoken");
 const pg = require("pg");
-
-//MODELS
 
 //CODIFICAÇÃO JSON
 app.use(express.urlencoded({ extended: true }));
@@ -19,4 +18,6 @@ try {
 } catch (erro) {
   console.log("Houve uma falha ao sincronizar com o banco de dados. ", erro);
 }
-app.listen(3000);
+app.listen(PORT, () => {
+  console.log(`⚡️[server]: Server is running at http://localhost:${PORT}`);
+});

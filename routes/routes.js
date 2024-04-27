@@ -16,7 +16,10 @@ router.get("/", (req, res) => {
 //POST - Login
 router.post("/login", funcionarioController.FuncionarioLogin);
 //POST - Cadastrar
-router.post("/funcionarios", funcionarioController.FuncionarioCreate);
+router.post("/funcionarios",
+  loginController.verificaJWT,
+  funcionarioController.FuncionarioCreate
+);
 //GET - Listar
 router.get(
   "/funcionarios/:id?",

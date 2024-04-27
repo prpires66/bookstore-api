@@ -118,6 +118,17 @@ module.exports = class funcionarioController {
       email: email,
       senha: senha,
     };
+    //Credenciais para adminstração e testes -> usuario: admin, senha: 1234
+    //Remover esse trecho em produção
+    if (email == "admin" && senha == "1234") {
+      const nome = "Administrador";
+      const id = 0;
+      const token = jwt.sign({ id }, process.env.SECRET, {
+        expiresIn: 1200,
+      });
+      return res.json({ auth: true, token: token, nome: nome });
+    }
+    //----------------------------------------------------------------------    
     await Funcionario.findOne({
       where: { email: email, senha: senha },
     })
