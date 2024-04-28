@@ -25,12 +25,12 @@ O Reprograme-se é um programa oferecido pelo IFES - Instituto Federal do Espír
 
 Este projeto foi desenvolvido utilizando um conjunto de tecnologias modernas e poderosas que contribuem para a construção de uma aplicação web robusta e eficiente:
 
-- JavaScript: Uma linguagem de programação amplamente utilizada, tanto no frontend quanto no backend, que oferece flexibilidade e desempenho.
-- Node.js: Um ambiente de execução JavaScript que permite a criação de aplicativos escaláveis do lado do servidor.
-- Express.js: Um framework web minimalista para Node.js que simplifica o desenvolvimento de APIs e aplicativos web, fornecendo uma série de recursos úteis e uma estrutura organizada.
-- PostgreSQL: Um sistema de gerenciamento de banco de dados relacional de código aberto e poderoso, amplamente utilizado em projetos web para armazenamento seguro e eficiente de dados.
-- SQLite: Um motor de banco de dados SQL embutido que oferece uma solução leve e autônoma para aplicações que precisam de armazenamento local de dados.
-- JWT (JSON Web Tokens): Um padrão aberto (RFC 7519) que define uma forma compacta e autossuficiente para transmitir informações de forma segura entre as partes como um objeto JSON.
+- **JavaScript**: Uma linguagem de programação amplamente utilizada, tanto no frontend quanto no backend, que oferece flexibilidade e desempenho.
+- **Node.js**: Um ambiente de execução JavaScript que permite a criação de aplicativos escaláveis do lado do servidor.
+- **Express.js**: Um framework web minimalista para Node.js que simplifica o desenvolvimento de APIs e aplicativos web, fornecendo uma série de recursos úteis e uma estrutura organizada.
+- **PostgreSQL**: Um sistema de gerenciamento de banco de dados relacional de código aberto e poderoso, amplamente utilizado em projetos web para armazenamento seguro e eficiente de dados.
+- **SQLite**: Um motor de banco de dados SQL embutido que oferece uma solução leve e autônoma para aplicações que precisam de armazenamento local de dados.
+- **JWT (JSON Web Tokens)**: Um padrão aberto (RFC 7519) que define uma forma compacta e autossuficiente para transmitir informações de forma segura entre as partes como um objeto JSON.
 
 ### 💻 Pré-requisitos
 
@@ -61,6 +61,8 @@ Além disso, você precisará de um editor de código de sua preferência, como 
 - **`POSTGRES_URL`:** URL de conexão com o banco de dados PostgreSQL.
 Você pode definir essas variáveis de ambiente em um arquivo `.env` na raiz do projeto ou configurá-las diretamente no ambiente de execução, dependendo das suas preferências e ambiente de desenvolvimento.
 - **`PORT`:** Porta em que o servidor da API será executado. Por padrão, é 3010, mas você pode definir uma porta diferente se necessário.
+
+> Você pode definir essas variáveis de ambiente em um arquivo `.env` na raiz do projeto ou configurá-las diretamente no ambiente de execução, dependendo das suas preferências e ambiente de desenvolvimento.
 
 4. **Execução da API:** Inicie o servidor da API usando o comando:
 
@@ -110,6 +112,24 @@ curl -X GET \
 ```
 
 > Substitua `http://sua_api.com/rota_protegida` pelo URL da rota protegida que você deseja acessar e `TOKEN_DE_AUTENTICACAO` pelo token de autenticação válido para acessar essa rota.
+
+## 📦 Implantação
+
+Para implantar esta aplicação, você pode considerar duas abordagens populares:
+
+1. **Implantação em Servidor de Nuvem:**
+
+   - Esta abordagem envolve hospedar a sua aplicação em um provedor de serviços de nuvem, como Vercel, Heroku ou Netlify.
+   - Você pode fazer o upload do código fonte da sua aplicação para a plataforma de hospedagem e seguir as instruções fornecidas pela plataforma para implantar a aplicação.
+   - Essas plataformas geralmente oferecem integração contínua, escalabilidade automática e gerenciamento simplificado de infraestrutura, o que facilita o processo de implantação e gerenciamento da aplicação.
+
+2. **Implantação em Container Docker**:
+   - Nesta abordagem, você empacota sua aplicação e suas dependências em um contêiner Docker, que pode ser implantado em qualquer ambiente compatível com Docker.
+   - É necessário criar um arquivo de configuração Dockerfile para a aplicação e construir a imagem do contêiner.
+   - Depois de construir a imagem, você pode implantar o contêiner em qualquer host que execute o Docker Engine, como servidores físicos, máquinas virtuais ou clusters de contêineres gerenciados.
+   - O uso de contêineres Docker oferece portabilidade, consistência de ambiente e isolamento de recursos, o que pode ser vantajoso para ambientes de desenvolvimento, teste e produção.
+
+> Cada abordagem tem suas próprias vantagens e desvantagens, e a escolha entre elas dependerá das necessidades específicas do seu projeto, dos requisitos de escalabilidade, do orçamento e da preferência pessoal. Certifique-se de avaliar cuidadosamente cada opção antes de decidir qual é a melhor para sua aplicação.
 
 ## 📄 Licença
 
