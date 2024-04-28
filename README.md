@@ -7,6 +7,19 @@
 ![SQLite](https://img.shields.io/badge/sqlite-%2307405e.svg?style=for-the-badge&logo=sqlite&logoColor=white)
 ![JWT](https://img.shields.io/badge/JWT-black?style=for-the-badge&logo=JSON%20web%20tokens)
 
+<p align="left">
+  <a href="#%E2%84%B9%EF%B8%8F-reprograme-se">Reprograme-se</a> •
+  <a href="#%EF%B8%8F-tecnologias">Tecnologias</a> •
+  <a href="#-pré-requisitos">Pré-requisitos</a> •
+  <a href="#-instalação-e-uso">Instalação</a> •
+  <a href="#%EF%B8%8F-utiliza%C3%A7%C3%A3o-da-api">Utilização</a> •
+  <a href="#%EF%B8%8F-rotas-protegidas">Rotas Protegidas</a> •
+  <a href="#-implantação">Implantação</a> •
+  <a href="#-licença">Licença</a> •
+  <a href="#-agradecimentos">Agradecimentos</a>
+</p>
+
+---
 ## 🚀 Descrição
 
 Este projeto faz parte das atividades práticas do módulo 2024-F2M4: Node.js, do programa **Reprograme-se**. A proposta consiste em desenvolver um sistema de cadastro de livros e funcionários, dividido em duas partes:
@@ -15,24 +28,25 @@ Este projeto faz parte das atividades práticas do módulo 2024-F2M4: Node.js, d
 
 2. **Aplicação Back-end**: Esta parte gerencia os dados dos livros e funcionários, possibilitando a realização de operações de CRUD (Create, Read, Update, Delete) por meio de uma API, garantindo assim a integridade e segurança dos dados. [Repositório no Github](https://github.com/prpires66/bookstore-api)
 
+> [!NOTE]
 > Esta aplicação se refere ao **item 2 (Aplicação Back-end)** e é responsável pelo gerenciamento dos dados dos livros e funcionários em um sistema de livraria, fornecendo uma API para interação com o banco de dados.
 
 ## ℹ️ Reprograme-se
 
 O Reprograme-se é um programa oferecido pelo IFES - Instituto Federal do Espírito Santo, com o objetivo de qualificar jovens e adultos para o mercado de trabalho na área de Tecnologia da Informação (TI). Para mais informações, visite o [site oficial do Reprograme-se](https://reprograme-se.org.br/).
 
-## 🛠️ Tecnologias Utilizadas
+## 🛠️ Tecnologias
 
 Este projeto foi desenvolvido utilizando um conjunto de tecnologias modernas e poderosas que contribuem para a construção de uma aplicação web robusta e eficiente:
 
-- **JavaScript**: Uma linguagem de programação amplamente utilizada, tanto no frontend quanto no backend, que oferece flexibilidade e desempenho.
+- **JavaScript**: Uma linguagem de programação amplamente utilizada, tanto no front-end quanto no back-end, que oferece flexibilidade e desempenho.
 - **Node.js**: Um ambiente de execução JavaScript que permite a criação de aplicativos escaláveis do lado do servidor.
 - **Express.js**: Um framework web minimalista para Node.js que simplifica o desenvolvimento de APIs e aplicativos web, fornecendo uma série de recursos úteis e uma estrutura organizada.
 - **PostgreSQL**: Um sistema de gerenciamento de banco de dados relacional de código aberto e poderoso, amplamente utilizado em projetos web para armazenamento seguro e eficiente de dados.
 - **SQLite**: Um motor de banco de dados SQL embutido que oferece uma solução leve e autônoma para aplicações que precisam de armazenamento local de dados.
 - **JWT (JSON Web Tokens)**: Um padrão aberto (RFC 7519) que define uma forma compacta e autossuficiente para transmitir informações de forma segura entre as partes como um objeto JSON.
 
-### 💻 Pré-requisitos
+## 💻 Pré-requisitos
 
 Antes de iniciar, você precisará ter as seguintes ferramentas instaladas em sua máquina:
 
@@ -59,9 +73,9 @@ Além disso, você precisará de um editor de código de sua preferência, como 
 
 - **`SECRET`:** Chave secreta utilizada pelo JWT para assinar tokens de autenticação.
 - **`POSTGRES_URL`:** URL de conexão com o banco de dados PostgreSQL.
-Você pode definir essas variáveis de ambiente em um arquivo `.env` na raiz do projeto ou configurá-las diretamente no ambiente de execução, dependendo das suas preferências e ambiente de desenvolvimento.
 - **`PORT`:** Porta em que o servidor da API será executado. Por padrão, é 3010, mas você pode definir uma porta diferente se necessário.
 
+> [!TIP]
 > Você pode definir essas variáveis de ambiente em um arquivo `.env` na raiz do projeto ou configurá-las diretamente no ambiente de execução, dependendo das suas preferências e ambiente de desenvolvimento.
 
 4. **Execução da API:** Inicie o servidor da API usando o comando:
@@ -76,7 +90,8 @@ Você pode definir essas variáveis de ambiente em um arquivo `.env` na raiz do 
 
 Esta API oferece diversos endpoints para interagir com os funcionários e livros de uma empresa.
 
-> **:information_source: Observação:** Substitua `<baseUrl>` pelo endpoint que você está tentando acessar.
+> [!NOTE]
+> Substitua `<baseUrl>` pelo endpoint que você está tentando acessar.
 
 ### Rotas para Funcionários
 
@@ -99,10 +114,11 @@ Esta API oferece diversos endpoints para interagir com os funcionários e livros
 
 > Lembre-se de substituir `:id` pelo ID correspondente ao funcionário ou livro desejado nas rotas que exigem esse parâmetro.
 
-## ㊙️ Acesso às Rotas Protegidas
+## ㊙️ Rotas Protegidas
 
 Para acessar as rotas protegidas da API, você precisa incluir o token de autenticação no header da requisição. No caso do Postman ou programas similares, você deve adicionar o header `x-access-token` com o valor do token na requisição. Todas as rotas são protegidas, exceto: `/` e `/login`.
 
+> [!WARNING]
 > Ao enviar uma requisição para uma rota protegida, certifique-se de incluir esse header para garantir o acesso autorizado.
 
 ```bash
@@ -110,7 +126,7 @@ curl -X GET \
   http://sua_api.com/rota_protegida \
   -H 'x-access-token: TOKEN_DE_AUTENTICACAO'
 ```
-
+> [!NOTE]
 > Substitua `http://sua_api.com/rota_protegida` pelo URL da rota protegida que você deseja acessar e `TOKEN_DE_AUTENTICACAO` pelo token de autenticação válido para acessar essa rota.
 
 ## 📦 Implantação
@@ -129,16 +145,18 @@ Para implantar esta aplicação, você pode considerar duas abordagens populares
    - Depois de construir a imagem, você pode implantar o contêiner em qualquer host que execute o Docker Engine, como servidores físicos, máquinas virtuais ou clusters de contêineres gerenciados.
    - O uso de contêineres Docker oferece portabilidade, consistência de ambiente e isolamento de recursos, o que pode ser vantajoso para ambientes de desenvolvimento, teste e produção.
 
+> [!NOTE]
 > Cada abordagem tem suas próprias vantagens e desvantagens, e a escolha entre elas dependerá das necessidades específicas do seu projeto, dos requisitos de escalabilidade, do orçamento e da preferência pessoal. Certifique-se de avaliar cuidadosamente cada opção antes de decidir qual é a melhor para sua aplicação.
 
 ## 📄 Licença
-
 ![License: MIT](https://img.shields.io/github/license/prpires66/nlw-esports?style=for-the-badge)
 
-Este projeto está sob a licença MIT. Consulte o arquivo [LICENSE](https://github.com/prpires66/bookstore-api/blob/main/LICENSE) para obter mais detalhes.
+Copyright © 2024 [Paulo Pires](https://github.com/prpires66).
 
-## 🙏 Agradecimento
+Este projeto está sob a licença MIT. Consulte o arquivo [LICENSE](https://github.com/prpires66/bookstore-front/blob/main/LICENSE) para obter mais detalhes.
 
-> - Agradeço ao IFES - Instituto Federal do Espírito Santo pelo apoio através do projeto Reprograme-se, assim como aos professores e colegas alunos.
+## 🙏 Agradecimentos
+
+> - Agradeço ao IFES - Instituto Federal do Espírito Santo pelo apoio através do projeto Reprograme-se, assim como professores e colegas.
 > - Contribuições e sugestões são sempre bem-vindas.
-> - Muito obrigado!
+> - Muito obrigado! :blue_heart:
