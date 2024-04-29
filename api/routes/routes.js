@@ -16,7 +16,8 @@ router.get("/", (req, res) => {
 //POST - Login
 router.post("/login", funcionarioController.FuncionarioLogin);
 //POST - Cadastrar
-router.post("/funcionarios",
+router.post(
+  "/funcionarios",
   loginController.verificaJWT,
   funcionarioController.FuncionarioCreate
 );
@@ -24,19 +25,19 @@ router.post("/funcionarios",
 router.get(
   "/funcionarios/:id?",
   loginController.verificaJWT,
-  funcionarioController.FuncionarioListar,
+  funcionarioController.FuncionarioListar
 );
 //PUT - Atualizar
 router.put(
   "/funcionarios/:id",
   loginController.verificaJWT,
-  funcionarioController.FuncionarioUpdate,
+  funcionarioController.FuncionarioUpdate
 );
 // DELETE - Apagar
 router.delete(
   "/funcionarios/:id",
   loginController.verificaJWT,
-  funcionarioController.FuncionarioDelete,
+  funcionarioController.FuncionarioDelete
 );
 
 /////////////// Requisições HTTP Livro ///////////////
@@ -45,25 +46,25 @@ router.delete(
 router.post(
   "/livros/Cadastrar",
   loginController.verificaJWT,
-  livroController.LivroCreate,
+  livroController.LivroCreate
 );
 //PUT - Atualizar
 router.put(
   "/livros/:id",
   loginController.verificaJWT,
-  livroController.LivroUpdate,
+  livroController.LivroUpdate
 );
 // DELETE - Apagar
 router.delete(
   "/livros/:id",
   loginController.verificaJWT,
-  livroController.LivroDelete,
+  livroController.LivroDelete
 );
 //GET - Listar
 router.get(
   "/livros/:id?",
   loginController.verificaJWT,
-  livroController.LivroListar,
+  livroController.LivroListar
 );
 
 module.exports = router;
