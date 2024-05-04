@@ -68,23 +68,22 @@ Além disso, você precisará de um editor de código de sua preferência, como 
    ```
    npm install
    ```
-   
 5. **Configuração do ambiente:** Antes de executar a API, certifique-se de configurar as seguintes variáveis de ambiente:
 
 - **`SECRET`:** Chave secreta utilizada pelo JWT para assinar tokens de autenticação.
 - **`POSTGRES_URL`:** URL de conexão com o banco de dados PostgreSQL.
 - **`PORT`:** Porta em que o servidor da API será executado. Por padrão, é 3010, mas você pode definir uma porta diferente se necessário.
+- **`DB_TYPE`:** Tipo de banco de dados a ser utilizado. Os valores válidos são "sqlite" ou "postgres".
 
 > [!TIP]
-> Você pode definir essas variáveis de ambiente em um arquivo `.env` na raiz do projeto ou configurá-las diretamente no ambiente de execução, dependendo das suas preferências e ambiente de desenvolvimento.
+> Você pode definir essas variáveis de ambiente em um arquivo `.env` na raiz do projeto ou configurá-las diretamente no ambiente de execução, conforme suas preferências e os recursos disponíveis no ambiente utilizado.
 
 4. **Execução da API:** Inicie o servidor da API usando o comando:
 
    ```
    npm start
    ```
-
-5. **Utilização da API:** A API estará disponível em `http://localhost:3010` por padrão, ou na porta especificada pela variável de ambiente `PORT`. Você pode enviar requisições HTTP para as rotas especificadas abaixo.
+ **Utilização da API:** A API estará disponível em `http://localhost:3010` por padrão, ou na porta especificada pela variável de ambiente `PORT`. Você pode enviar requisições HTTP para as rotas especificadas abaixo.
 
 ## ⚙️ Utilização da API
 
