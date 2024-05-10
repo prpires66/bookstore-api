@@ -7,13 +7,13 @@ module.exports = class livroController {
     let titulo = req.body.titulo;
     let autor = req.body.autor;
     let preco = req.body.preco;
-    let link_imagem = req.body.link_imagem;
+    let linkImagem = req.body.linkImagem;
 
     const livro = {
       titulo: titulo,
       autor: autor,
       preco: preco,
-      link_imagem: link_imagem,
+      linkImagem: linkImagem,
     };
     await Livro.create(livro)
       .then(() => {
@@ -32,10 +32,10 @@ module.exports = class livroController {
   }
   //READ - LISTAR
   static async LivroListar(req, res) {
-    const id_livro = req.params.id;
-    if (id_livro) {
+    const idLivro = req.params.id;
+    if (idLivro) {
       const livro = await Livro.findOne({
-        where: { id_livro: id_livro },
+        where: { idLivro: idLivro },
       })
         .then((livro) => {
           res.json(livro);
@@ -69,18 +69,18 @@ module.exports = class livroController {
   }
   //UPDATE
   static async LivroUpdate(req, res) {
-    const id_livro = req.params.id;
+    const idLivro = req.params.id;
     let titulo = req.body.titulo;
     let autor = req.body.autor;
     let preco = req.body.preco;
-    let link_imagem = req.body.link_imagem;
+    let linkImagem = req.body.linkImagem;
     const livro = {
       titulo: titulo,
       autor: autor,
       preco: preco,
-      link_imagem: link_imagem,
+      linkImagem: linkImagem,
     };
-    await Livro.update(livro, { where: { id_livro: id_livro } })
+    await Livro.update(livro, { where: { idLivro: idLivro } })
       .then(() => {
         res.json({
           message: "Cadastro atualizado com sucesso! ",
@@ -100,8 +100,8 @@ module.exports = class livroController {
   }
   //DELETE
   static async LivroDelete(req, res) {
-    const id_livro = req.params.id;
-    await Livro.destroy({ where: { id_livro: id_livro } })
+    const idLivro = req.params.id;
+    await Livro.destroy({ where: { idLivro: idLivro } })
       .then(() => {
         res.json({ message: "Livro excluído com sucesso!" });
       })

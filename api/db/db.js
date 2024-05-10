@@ -8,12 +8,12 @@ if (process.env.DB_TYPE === "sqlite") {
     dialect: "sqlite",
     storage: "./bookstoreDB.sqlite",
   });
-} else if (process.env.DB_TYPE === "postgres") {
+} else if (process.env.DB_TYPE === "postgres" && process.env.POSTGRES_URL) {
   sequelize = new Sequelize(process.env.POSTGRES_URL, {
     dialect: "postgres",
   });
 } else {
-  console.error("Valor inválido para variavel de ambiente DB_TYPE. Use 'sqlite' ou 'postgres'.");
+  console.error("Defina os valores para as variáveis ambiente DB_TYPE e POSTGRES_URL.");
   process.exit(1); // Encerra o processo com código de erro
 }
 

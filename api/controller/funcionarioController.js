@@ -26,10 +26,10 @@ module.exports = class funcionarioController {
 
   //READ - Listar Funcionário
   static async FuncionarioListar(req, res) {
-    const id_funcionario = req.params.id;
-    if (id_funcionario) {
+    const idFuncionario = req.params.id;
+    if (idFuncionario) {
       await Funcionario.findOne({
-        where: { id_funcionario: id_funcionario },
+        where: { idFuncionario: idFuncionario },
       })
         .then((funcionario) => {
           res.json(funcionario);
@@ -64,7 +64,7 @@ module.exports = class funcionarioController {
 
   //UPDATE - Atualizar Funcionário
   static async FuncionarioUpdate(req, res) {
-    const id_funcionario = req.params.id;
+    const idFuncionario = req.params.id;
     let nome = req.body.nome;
     let email = req.body.email;
     let senha = req.body.senha;
@@ -74,7 +74,7 @@ module.exports = class funcionarioController {
       senha: senha,
     };
     await Funcionario.update(funcionario, {
-      where: { id_funcionario: id_funcionario },
+      where: { idFuncionario: idFuncionario },
     })
       .then(() => {
         res.json({ message: "Funcionário atualizado com sucesso!" });
@@ -93,8 +93,8 @@ module.exports = class funcionarioController {
 
   //DELETE - Excluir Funcionário
   static async FuncionarioDelete(req, res) {
-    const id_funcionario = req.params.id;
-    await Funcionario.destroy({ where: { id_funcionario: id_funcionario } })
+    const idFuncionario = req.params.id;
+    await Funcionario.destroy({ where: { idFuncionario: idFuncionario } })
       .then(() => {
         res.json({ message: "Usuário excluído com sucesso!" });
       })
@@ -124,7 +124,7 @@ module.exports = class funcionarioController {
       const nome = "Administrador";
       const id = 0;
       const token = jwt.sign({ id }, process.env.SECRET, {
-        expiresIn: 1200,
+        expiresIn: 1800,
       });
       return res.json({ auth: true, token: token, nome: nome });
     }
@@ -134,7 +134,7 @@ module.exports = class funcionarioController {
     })
       .then((funcionario) => {
         if (funcionario != undefined) {
-          const id = funcionario.id_funcionario;
+          const id = funcionario.idFuncionario;
           const nome = funcionario.nome;
           const token = jwt.sign({ id }, process.env.SECRET, {
             expiresIn: 1200,

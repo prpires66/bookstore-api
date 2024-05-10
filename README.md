@@ -72,11 +72,17 @@ Além disso, você precisará de um editor de código de sua preferência, como 
 
 - **`SECRET`:** Chave secreta utilizada pelo JWT para assinar tokens de autenticação.
 - **`POSTGRES_URL`:** URL de conexão com o banco de dados PostgreSQL.
-- **`PORT`:** Porta em que o servidor da API será executado. Por padrão, é 3010, mas você pode definir uma porta diferente se necessário.
-- **`DB_TYPE`:** Tipo de banco de dados a ser utilizado. Os valores válidos são "sqlite" ou "postgres".
+- **`PORT`:** Porta em que o servidor da API será executado. Por padrão, é `3000`, mas você pode definir uma porta diferente se necessário.
+- **`DB_TYPE`:** Tipo de banco de dados a ser utilizado. Os valores válidos são `sqlite` ou `postgres`.
 
 > [!TIP]
-> Você pode definir essas variáveis de ambiente em um arquivo `.env` na raiz do projeto ou configurá-las diretamente no ambiente de execução, conforme suas preferências e os recursos disponíveis no ambiente utilizado.
+> Você pode definir essas variáveis de ambiente em um arquivo `.env` na raiz do projeto ou configurá-las diretamente no ambiente de execução, conforme suas preferências e os recursos disponíveis no ambiente utilizado. Abaixo um exemplo de arquivo `.env`:
+```dotenv
+SECRET=seu_segredo_aqui
+POSTGRES_URL=postgres://usuario:senha@localhost:5432/nome_do_banco
+PORT=3000
+DB_TYPE=postgres
+```
 
 4. **Execução da API:** Inicie o servidor da API usando o comando:
 

@@ -4,7 +4,7 @@ const database = require("../db/db");
 const Livro = database.define(
   "livro",
   {
-    id_livro: {
+    idLivro: {
       type: Sequelize.INTEGER,
       autoIncrement: true,
       allowNull: false,
@@ -22,7 +22,7 @@ const Livro = database.define(
       type: Sequelize.STRING,
       allowNull: false,
     },
-    link_imagem: {
+    linkImagem: {
       type: Sequelize.STRING,
       allowNull: false,
     },

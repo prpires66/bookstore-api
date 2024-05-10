@@ -4,7 +4,12 @@ const express = require("express");
 const favicon = require("express-favicon");
 
 const app = express();
-const PORT = process.env.PORT || 3010;
+const PORT = process.env.PORT || 4000;
+
+if (process.env.SECRET === undefined) {
+  console.error("Valor inválido para variavel de ambiente SECRET.");
+  process.exit(1); // Encerra o processo com código de erro
+}
 
 const database = require("./api/db/db");
 const routes = require("./api/routes/routes");
