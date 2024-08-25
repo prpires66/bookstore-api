@@ -17,6 +17,7 @@
 		"express": "^4.19.2",
 		"express-favicon": "^2.0.4",
 		"jsonwebtoken": "^9.0.2",
+		"nodejs": "file:",
 		"pg": "^8.11.5",
 		"sequelize": "^6.37.3",
 		"sqlite3": "^5.1.7"
