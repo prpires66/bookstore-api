@@ -72,16 +72,16 @@ Além disso, você precisará de um editor de código de sua preferência, como 
 
 - **`SECRET`:** Chave secreta utilizada pelo JWT para assinar tokens de autenticação.
 - **`POSTGRES_URL`:** URL de conexão com o banco de dados PostgreSQL.
-- **`PORT`:** Porta em que o servidor da API será executado. Por padrão, é `3000`, mas você pode definir uma porta diferente se necessário.
-- **`DB_TYPE`:** Tipo de banco de dados a ser utilizado. Os valores válidos são `sqlite` ou `postgres`.
+- **`PORT`:** Porta em que o servidor da API será executado. Por padrão, é `4000`, mas você pode definir uma porta diferente se necessário.
+- **`DB_TYPE`:** Tipo de banco de dados a ser utilizado. Os valores válidos são `sqlite` ou `postgres`. Caso utilize `postgres` o banco PostgreSQL deve ser provisionado separadamente.
 
 > [!TIP]
 > Você pode definir essas variáveis de ambiente em um arquivo `.env` na raiz do projeto ou configurá-las diretamente no ambiente de execução, conforme suas preferências e os recursos disponíveis no ambiente utilizado. Abaixo um exemplo de arquivo `.env`:
 ```dotenv
-SECRET=seu_segredo_aqui
-POSTGRES_URL=postgres://usuario:senha@localhost:5432/nome_do_banco
-PORT=3000
-DB_TYPE=postgres
+SECRET="seu_segredo_aqui"
+POSTGRES_URL="postgres://usuario:senha@localhost:5432/nome_do_banco"
+PORT=4000
+DB_TYPE="postgres"
 ```
 
 4. **Execução da API:** Inicie o servidor da API usando o comando:
@@ -89,50 +89,149 @@ DB_TYPE=postgres
    ```
    npm start
    ```
- **Utilização da API:** A API estará disponível em `http://localhost:3010` por padrão, ou na porta especificada pela variável de ambiente `PORT`. Você pode enviar requisições HTTP para as rotas especificadas abaixo.
+ **Utilização da API:** A API estará disponível em `http://localhost:4000` por padrão, ou na porta especificada pela variável de ambiente `PORT`. Você pode enviar requisições HTTP para as rotas especificadas abaixo.
 
 ## ⚙️ Utilização da API
 
 Esta API oferece diversos endpoints para interagir com os funcionários e livros de uma empresa.
 
-> [!NOTE]
-> Substitua `<baseUrl>` pelo endpoint que você está tentando acessar.
-
 ### Rotas para Funcionários
 
-| Método | Endpoint                 | Descrição                                                     | Exemplo de Uso (bash)                      |
-| ------ | ------------------------ | ------------------------------------------------------------- | ------------------------------------------ |
-| `POST` | `/login`                 | Autentica um funcionário.                                     | `curl <baseUrl>/login`                     |
-| `POST` | `/funcionarios`          | Cadastra um novo funcionário.                                 | `curl -X POST <baseUrl>/funcionarios`      |
-| `GET`  | `/funcionarios/:id?`     | Lista todos os funcionários ou obtém detalhes de um específico. | `curl <baseUrl>/funcionarios/1`           |
-| `PUT`  | `/funcionarios/:id`      | Atualiza os dados de um funcionário.                          | `curl -X PUT <baseUrl>/funcionarios/1`     |
-| `DELETE` | `/funcionarios/:id`      | Exclui um funcionário.                                        | `curl -X DELETE <baseUrl>/funcionarios/1`  |
+| Método   | Endpoint            | Descrição                                                           |
+| -------- | ------------------- | ------------------------------------------------------------------- |
+| `POST`   | `/login`            | Autentica um funcionário e retorna um token JWT.                    |
+| `POST`   | `/funcionarios`     | Cadastra um novo funcionário no sistema.                            |
+| `GET`    | `/funcionarios`     | Lista todos os funcionários cadastrados.                            |
+| `GET`    | `/funcionarios/:id` | Retorna os detalhes de um funcionário específico, pelo seu `id`.    |
+| `PUT`    | `/funcionarios/:id` | Atualiza as informações de um funcionário específico, pelo seu `id`.|
+| `DELETE` | `/funcionarios/:id` | Exclui um funcionário específico, pelo seu `id`.                    |
+   
+> Lembre-se de substituir `:id` pelo ID correspondente ao funcionário desejado nas rotas que exigem esse parâmetro.
+
+### Exemplos de uso
+> [!NOTE]
+> Substitua `<baseUrl>` pelo endpoint onde a aplicação foi configurada para rodar.
+
+#### `/funcionarios`
+```bash
+curl -X POST '<baseUrl>/funcionarios' \
+-H 'Content-Type: application/json' \
+-H 'Authorization: Bearer <token>' \
+--data-raw '{
+  "nome": "Paulo",
+  "email": "paulo@email.com",
+  "senha": "123456"
+}'
+```
+
+```json
+{
+    "message": "Usuário cadastrado com sucesso!"
+}
+ ```
+
+#### `/funcionarios/:id`
+```bash
+curl -X PUT '<baseUrl>/funcionarios/1' \
+-H 'Content-Type: application/json' \
+-H 'Authorization: Bearer <token>' \
+--data-raw '{
+  "nome": "Joao",
+  "email": "joao@email.com",
+  "senha": "123456"
+}'
+```
+
+```json
+{
+    "message": "Funcionário atualizado com sucesso!"
+}
+ ```
 
 ### Rotas para Livros
 
-| Método | Endpoint                 | Descrição                                                     | Exemplo de Uso (bash)                      |
-| ------ | ------------------------ | ------------------------------------------------------------- | ------------------------------------------ |
-| `POST` | `/livros/Cadastrar`      | Cadastra um novo livro.                                       | `curl -X POST <baseUrl>/livros/Cadastrar`  |
-| `GET`  | `/livros/:id?`           | Lista todos os livros ou obtém detalhes de um específico.     | `curl <baseUrl>/livros/1`                 |
-| `PUT`  | `/livros/:id`            | Atualiza os dados de um livro.                                | `curl -X PUT <baseUrl>/livros/1`           |
-| `DELETE` | `/livros/:id`            | Exclui um livro.                                              | `curl -X DELETE <baseUrl>/livros/1`        |
+| Método   | Endpoint                 | Descrição                                                     |
+| -------- | ------------------------ | ------------------------------------------------------------- |
+| `POST`   | `/livros/Cadastrar`      | Cadastra um novo livro.                                       |
+| `GET`    | `/livros/:id?`           | Lista todos os livros ou obtém detalhes de um específico.     |
+| `PUT`    | `/livros/:id`            | Atualiza os dados de um livro.                                |
+| `DELETE` | `/livros/:id`            | Exclui um livro.                                              |
 
-> Lembre-se de substituir `:id` pelo ID correspondente ao funcionário ou livro desejado nas rotas que exigem esse parâmetro.
+> Lembre-se de substituir `:id` pelo ID correspondente ao livro desejado nas rotas que exigem esse parâmetro.
+
+### Exemplos de uso
+> [!NOTE]
+> Substitua `<baseUrl>` pelo endpoint onde a aplicação foi configurada para rodar.
+
+#### `/livros/Cadastrar`
+```bash
+curl -X POST '<baseUrl>' \
+-H 'Content-Type: application/json' \
+-H 'Authorization: Bearer <token>' \
+-d '{
+        "titulo": "A Revolução do Bixos",
+        "autor": "George Orwell",
+        "preco": "27,89",
+        "linkImagem": "https://m.media-amazon.com/images/I/91BsZhxCRjL._SL1500_.jpg"
+}'
+```
+
+```json
+{
+    "message": "Livro cadastrado com sucesso!"
+}
+ ```
+
+#### `/livros/:id`
+```bash
+curl -X PUT '<baseUrl>' \
+-H 'Content-Type: application/json' \
+-H 'Authorization: Bearer <token>' \
+-d '{
+  "titulo": "História Sem Fim",
+  "autor": "Ende",
+  "preco": "10.00",
+  "linkImagem": "https://m.media-amazon.com/images/I/91xWEABnMGL._SL1500_.jpg"
+}'
+```
+
+```json
+{
+    "message": "Cadastro atualizado com sucesso! ",
+    "dados": {
+        "titulo": "História Sem Fim",
+        "autor": "Ende",
+        "preco": "10.00",
+        "linkImagem": "https://m.media-amazon.com/images/I/91xWEABnMGL._SL1500_.jpg"
+    }
+}
+ ```
 
 ## ㊙️ Rotas Protegidas
 
-Para acessar as rotas protegidas da API, você precisa incluir o token de autenticação no header da requisição. No caso do Postman ou programas similares, você deve adicionar o header `x-access-token` com o valor do token na requisição. Todas as rotas são protegidas, exceto: `/` e `/login`.
+Para acessar as rotas protegidas da API, você precisa incluir o token de autenticação no header da requisição. No caso do Postman ou programas similares, você deve adicionar o header `Authorization: Bearer <token>` com o valor do token na requisição. Todas as rotas são protegidas, exceto: `/` e `/login`.
 
-> [!WARNING]
-> Ao enviar uma requisição para uma rota protegida, certifique-se de incluir esse header para garantir o acesso autorizado.
+### Exemplo de autenticação
 
+#### Requisição `/login`
 ```bash
-curl -X GET \
-  http://sua_api.com/rota_protegida \
-  -H 'x-access-token: TOKEN_DE_AUTENTICACAO'
+curl -X POST -L 'http://<baseUrl>/login' \
+  -H 'Content-Type: application/json' \
+  -d '{
+    "email": "admin",
+    "senha": "1234"
+}'
 ```
+#### Resposta `/login`
+```json
+{
+  "auth": true,
+  "token": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOjAsIm5hbWUiOiJBZG1pbmlzdHJhZG9yIiwiZW1haWwiOiJhZG1pbkBlbWFpbC5jb20iLCJyb2xlcyI6WyJhZG1pbiIsInVzZXIiXSwiaWF0IjoxNzI0NjE5MzAyLCJleHAiOjE3MjQ2MjExMDJ9.CaS_bYV7Pl5LXvH8IK6h7HbwwaM4cAYIaF7N2Tl5k_Q",
+  "nome": "Administrador"
+}
+ ```
 > [!NOTE]
-> Substitua `http://sua_api.com/rota_protegida` pelo URL da rota protegida que você deseja acessar e `TOKEN_DE_AUTENTICACAO` pelo token de autenticação válido para acessar essa rota.
+> Para acessar as rotas protegidas utilize o token retonadado na autenticação no header das requisições `Authorization: Bearer <token>`.
 
 ## 📦 Implantação
 
@@ -161,7 +260,6 @@ Copyright © 2024 [Paulo Pires](https://github.com/prpires66).
 Este projeto está sob a licença MIT. Consulte o arquivo [LICENSE](https://github.com/prpires66/bookstore-front/blob/main/LICENSE) para obter mais detalhes.
 
 ## 🙏 Agradecimentos
-
-> - Agradeço ao IFES - Instituto Federal do Espírito Santo pelo apoio através do projeto Reprograme-se, assim como professores e colegas.
-> - Contribuições e sugestões são sempre bem-vindas.
-> - Muito obrigado! :blue_heart:
+   - Agradeço ao IFES - Instituto Federal do Espírito Santo pelo apoio através do projeto Reprograme-se, assim como professores e colegas.
+   - Contribuições e sugestões são sempre bem-vindas.
+   - Muito obrigado! :blue_heart:
